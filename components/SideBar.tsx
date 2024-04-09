@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { SideBarLinks } from "@/constants";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -24,7 +24,15 @@ const SideBar = () => {
                 { "bg-blue-1": isActive }
               )}
             >
-              {link.label}
+              <Image
+                src={link.imgUrl}
+                width={24}
+                height={24}
+                alt={link.label}
+              />
+              <p className="text-lg font-semibold max-lg:hidden">
+                {link.label}
+              </p>
             </Link>
           );
         })}
